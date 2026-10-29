@@ -1,0 +1,57 @@
+name: ADNI_dem_biom_hipp
+description: "ADNI dataset with normalized left hippocampus volume (Poelsterl et al. 2019)"
+
+source:
+  type: csv
+  path: data/ADNI/ADNI_cleaned/ADNI_cleaned.csv
+  raw_path: data/ADNI/raw/<ADNI_raw>.csv
+  loader: null
+  params: {}
+
+variant:
+  include_volume: true
+
+TIME_COL: time
+EVENT_COL: event
+CAT_PREFIX: fac_
+NUM_PREFIX: num_
+TIME_UNIT: "days"
+
+meta:
+  source: " 'Alzheimer's Disease Neuroimaging Initiative (ADNI): Clinical Characterization' (Petersen et al. 2010)"
+  references: |
+    @article{Petersen2010ADNI,
+      author  = {Petersen, Ronald C. and Aisen, Paul S. and Beckett, Laurel A. and Donohue, Michael C. and Gamst, Anthony C. and Harvey, Danielle J. and Jack, Clifford R. and Jagust, William J. and Shaw, Leslie M. and Toga, Arthur W. and Trojanowski, John Q. and Weiner, Michael W.},
+      title   = {Alzheimer's Disease Neuroimaging Initiative (ADNI): Clinical Characterization},
+      journal = {Neurology},
+      volume  = {74},
+      number  = {3},
+      pages   = {201--209},
+      year    = {2010},
+      doi     = {10.1212/WNL.0b013e3181cb3e25}
+    }
+    @article{Fischl2012FreeSurfer,
+      author  = {Fischl, Bruce},
+      title   = {FreeSurfer},
+      journal = {NeuroImage},
+      volume  = {62},
+      number  = {2},
+      pages   = {774--781},
+      year    = {2012},
+      doi     = {10.1016/j.neuroimage.2012.01.021}
+    }
+    @inbook{Polsterl2020,
+      title     = {A Wide and Deep Neural Network for Survival Analysis from Anatomical Shape and Tabular Clinical Data},
+      ISBN      = {9783030438234},
+      url       = {http://dx.doi.org/10.1007/978-3-030-43823-4_37},
+      DOI       = {10.1007/978-3-030-43823-4_37},
+      booktitle = {Machine Learning and Knowledge Discovery in Databases},
+      publisher = {Springer International Publishing},
+      author    = {Pölsterl, Sebastian and Sarasua, Ignacio and Gutiérrez-Becker, Benjamín and Wachinger, Christian},
+      year      = {2020},
+      pages     = {453--464}
+    }
+
+missing_handling:
+  numerical: "median imputation (SimpleImputer)"
+  categorical: "NaN encoded as own OHE category (pandas NaN -> 'nan' string -> OneHotEncoder creates ohe__fac_ATN_status_nan dummy; 237/760 = 31.2% of rows)"

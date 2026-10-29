@@ -1,0 +1,24 @@
+name: borrow_repay
+description: "borrow_repay dataset for survival analysis 'FinSurvival: A Suite of Large Scale Survival Modeling Tasks from Finance' (Green et al. 2025)"
+
+source:
+  type: custom
+  script: "dataLoader.R"
+  reference: "https://github.com/Large-Transaction-Models/DMLR_DeFi_Survival_Benchmark/blob/main/dataPreprocessing.R"
+
+TIME_COL: time
+EVENT_COL: event
+TIME_UNIT: "days"
+
+meta:
+  source: "borrow-repay (see reference below)"
+  references: |
+    @misc{green2025finsurvivalsuitelargescale,
+      title         = {FinSurvival: A Suite of Large Scale Survival Modeling Tasks from Finance},
+      author        = {Aaron Green and Zihan Nie and Hanzhen Qin and Oshani Seneviratne and Kristin P. Bennett},
+      year          = {2025},
+      eprint        = {2507.14160},
+      archivePrefix = {arXiv},
+      primaryClass  = {q-fin.ST},
+      url           = {https://arxiv.org/abs/2507.14160}
+    }

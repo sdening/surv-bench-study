@@ -1,0 +1,22 @@
+name: nwtco
+description: "NWTCO dataset for survival analysis"
+
+source:
+  type: survset-loader
+  path: null
+  loader: SurvSet.data:SurvLoader
+  params: { ds_name: nwtco }
+
+#SurvSet naming conventions:
+TIME_COL: time
+EVENT_COL: event
+CAT_PREFIX: fac_
+NUM_PREFIX: num_
+TIME_UNIT: "days"
+
+meta:
+  source: "SurvSet"
+
+missing_handling:
+  numerical: "rows with NaN dropped (standard_pipeline dropna)"
+  categorical: "rows with NaN dropped (standard_pipeline dropna)"

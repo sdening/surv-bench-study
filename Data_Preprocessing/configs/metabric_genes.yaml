@@ -1,0 +1,20 @@
+name: metabric_genes
+description: "METABRIC breast cancer - clinical features + PAM50 gene expression"
+
+source:
+  type: csv
+  clinical_file: "data/metabric/raw/brca_metabric_clinical_data.tsv"
+  gene_expression_file: "data/metabric/raw/mRNA_expression(Illumina HT-12v3microarray).txt"
+
+TIME_COL: time
+EVENT_COL: event
+CAT_PREFIX: fac_
+NUM_PREFIX: num_
+TIME_UNIT: "months"
+
+meta:
+  source: "cBioPortal METABRIC (Pereira et al. 2016)"
+
+missing_handling:
+  numerical: "median imputation (SimpleImputer) for clinical; rows with NaN gene expression dropped"
+  categorical: "not applicable (all features are numerical after binary encoding)"

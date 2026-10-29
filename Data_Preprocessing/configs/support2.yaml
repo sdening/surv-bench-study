@@ -1,0 +1,19 @@
+name: support2
+description: "SUPPORT2 dataset for survival analysis"
+
+source:
+  type: custom
+  script: "run_preprocess_support2.py"
+  reference: "https://github.com/georgehc/survival-intro/blob/main/datasets.py"
+  raw_path: data/support2/raw/support2.csv
+
+TIME_COL: time
+EVENT_COL: event
+TIME_UNIT: "days"
+
+meta:
+  source: "SUPPORT study (Knaus et al. 1995), preprocessed via https://github.com/georgehc/survival-intro/blob/main/datasets.py"
+
+missing_handling:
+  numerical: "rows with NaN dropped (dropna before preprocessing)"
+  categorical: "rows with NaN dropped (dropna before preprocessing)"

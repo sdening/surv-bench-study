@@ -1,0 +1,21 @@
+name: kkbox_100k
+description: "KKBox churn prediction - 100k sample of the full dataset"
+
+source:
+  type: pycox
+  loader: "pycox.datasets.kkbox"
+  parent_dataset: kkbox
+  sample_n: 100000
+
+TIME_COL: time
+EVENT_COL: event
+CAT_PREFIX: fac_
+NUM_PREFIX: num_
+TIME_UNIT: "days"
+
+meta:
+  source: "KKBox via pycox (Kvamme et al. 2019), stratified subsample of 100k rows"
+
+missing_handling:
+  numerical: "median imputation (SimpleImputer)"
+  categorical: "filled with placeholder (gender='n/a', city/registered_via='0')"
