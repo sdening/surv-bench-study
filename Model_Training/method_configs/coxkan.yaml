@@ -1,0 +1,43 @@
+name: coxkan
+description: "CoxKAN configuration"
+
+hyperparameter_grid:
+  lr: [0.001, 0.01, 0.05]
+  steps: [100]
+  base_fun: ["silu", "linear"]
+  num_hidden: [0, 1]
+  hidden_dim: [3]
+  grid: [3, 5]
+  batch_size: [256, 2048]
+
+# Default hyperparameters
+default_params:
+  lr: 0.01
+  steps: 100
+  base_fun: "silu"
+  num_hidden: 0
+  hidden_dim: 3
+  grid: 3
+
+
+# Symbolic fitting settings
+symbolic_fitting:
+  min_r2: 0.2
+  #lib: ["x", "x^2",'x^3', "exp", "log"]
+  lib: ["x", "x^2",'x^3', '1/x', '1/x^2','sqrt','1/sqrt(x)',  "exp", "log"]
+  #lib: ['x','x^2','x^3', 'x^4', '1/x', '1/x^2', '1/x^3', '1/x^4', 'sqrt', '1/sqrt(x)', 'exp', 'log','abs','sin','tan','tanh','sigmoid','sgn','arctan', 'arctanh', '0','gaussian', 'cosh']
+  a_range: [-5, 5]
+  b_range: [-5, 5]
+  verbose: 0
+  floating_digit: 3
+
+# Preprocessing settings
+preprocessing:
+  drop_nzv: true
+  drop_high_corr: true
+  drop_first: true
+  scaling: true
+  min_freq: 0.0025
+  corr_threshold: 0.98
+  data_suffix: "_coxkan"
+

@@ -1,0 +1,22 @@
+name: coxtime
+description: "CoxTime configuration"
+
+# Hyperparameter grid for optimization
+hyperparameter_grid: #final
+  hidden: [16, 128, 1024]        
+  learning_rate: [0.001, 0.01, 0.1] 
+  batch_size: [256, 2048]      
+  epochs: [100]              
+  dropout: [0.0, 0.2] 
+
+
+# Preprocessing settings
+preprocessing:
+  drop_nzv: true
+  drop_high_corr: true
+  drop_first: true
+  scaling: true
+  min_freq: 0.0025
+  corr_threshold: 0.98
+  data_suffix: "_coxtime"
+

@@ -1,0 +1,21 @@
+name: rsf
+description: "Random Survival Forest configuration"
+
+
+hyperparameter_grid: #final
+  n_estimators: [50, 100, 300]
+  max_depth: [null, 3, 6, 10]
+  min_samples_split: [0.01, 0.1]
+  min_samples_leaf: [0.05, 0.2]
+
+
+# Preprocessing settings
+preprocessing:
+  drop_nzv: true
+  drop_high_corr: true
+  drop_first: true
+  scaling: true
+  min_freq: 0.0025
+  corr_threshold: 0.98
+  data_suffix: "_rsf"
+

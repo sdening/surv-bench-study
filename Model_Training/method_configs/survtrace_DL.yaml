@@ -1,0 +1,20 @@
+name: survtrace_DL
+description: "SurvTRACE configuration"
+
+
+hyperparameter_grid:
+  hidden_factor: [4, 16]
+  num_attention_heads: [2, 4]
+  hidden_dropout: [0.0, 0.2]
+  batch_size: [128]
+  epochs: [50]
+
+preprocessing:
+  drop_nzv: true
+  drop_high_corr: true
+  drop_first: true
+  scaling: true
+  min_freq: 0.0025
+  corr_threshold: 0.98
+  data_suffix: "_survtrace"
+

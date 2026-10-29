@@ -1,0 +1,18 @@
+name: cox_elasticnet
+description: "cox elastic net configuration"
+
+
+hyperparameter_grid:
+  l1_ratio: [0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.99]
+
+
+# Preprocessing settings
+preprocessing:
+  drop_nzv: true
+  drop_high_corr: true
+  drop_first: true
+  scaling: true
+  min_freq: 0.0025
+  corr_threshold: 0.98
+  data_suffix: "_cox_elasticnet"
+
