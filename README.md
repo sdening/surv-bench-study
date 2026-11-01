@@ -45,7 +45,7 @@ Evaluation covers discrimination, prediction error, and calibration using C-inde
 ## Repository structure
 
 ```text
-repo_name/
+surv-bench-study/
 ├── Data_Preprocessing/
 │   ├── configs/                  # Dataset sources and outcome columns
 │   ├── run_preprocess.py         # Preprocess a SurvSet dataset
@@ -149,3 +149,13 @@ Library credits, dataset sources, and the original repository’s BibTeX entries
 **Sandra Dening\*, Emre Kavak\*, Christian Wachinger, and George H. Chen.** *What Survival Benchmarks Don’t Tell You: Impact of Model Selection and Dataset Regimes.* NeurIPS 2026, Evaluations & Datasets Track (* equal contribution).
 
 todo: paste paper link arxiv here
+
+If you use surv-bench-study in your research, please cite:
+```
+@inproceedings{deningkavak2026WSBDTY,
+  title={What Survival Benchmarks Don't Tell You: Impact of Model Selection and Dataset Regimes},
+  author={Dening, Sandra and Kavak, Emre and Wachinger, Christian and Chen, George H.},
+  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
+  year={2026}
+}
+```
